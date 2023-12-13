@@ -43,18 +43,14 @@ dependencies {
 }
 
 publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			from components.java
-
-			groupId = 'org.lohny'
-			artifactId = 'oauth_sdk'
-			version = '1.0'
-		}
-	}
 	repositories {
 		maven {
-			url = uri("https://github.com/start-for-legend/oauth_sdk")
+			name = "lohny"
+			url = "https://github.com/start-for-legend/oauth_sdk"
+			credentials {
+				username = System.getenv("MAVEN_USERNAME")
+				password = System.getenv("MAVEN_PASSWORD")
+			}
 		}
 	}
 }
