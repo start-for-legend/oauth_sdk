@@ -42,19 +42,6 @@ dependencies {
 	testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine')
 }
 
-publishing {
-	repositories {
-		maven {
-			name = "lohny"
-			url = "https://github.com/start-for-legend/oauth_sdk"
-			credentials {
-				username = System.getenv("MAVEN_USERNAME")
-				password = System.getenv("MAVEN_PASSWORD")
-			}
-		}
-	}
-}
-
 tasks.named('test') {
 	useJUnitPlatform()
 }
