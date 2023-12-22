@@ -12,6 +12,7 @@ version = '0.0.1-SNAPSHOT'
 
 java {
 	sourceCompatibility = '17'
+	targetCompatibility = '17'
 }
 
 repositories {
@@ -46,4 +47,17 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+afterEvaluate {
+	publishing {
+		publications {
+			mavenJava(MavenPublication) {
+				from components.java
+				groupId = 'com.github.blohny'
+				artifactId = 'oauth-sdk'
+				version = '1.0.0'
+			}
+		}
+	}
 }
